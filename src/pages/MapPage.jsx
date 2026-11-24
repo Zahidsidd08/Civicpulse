@@ -1,18 +1,11 @@
 import { useState } from 'react'
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-
+import { demoReports } from '../lib/demoData'
 const colors = { pothole: '#f97316', drainage: '#3b82f6', leakage: '#14b8a6' }
 const labels = { pothole: 'Pothole', drainage: 'Blocked Drain', leakage: 'Water Leakage' }
 
-// DEMO DATA. Dev 2 will replace this with real reports from Supabase.
-const demoReports = [
-  { id: 1, type: 'pothole', lat: 19.0760, lng: 72.8777, status: 'Reported' },
-  { id: 2, type: 'drainage', lat: 19.0820, lng: 72.8810, status: 'In progress' },
-  { id: 3, type: 'leakage', lat: 19.0700, lng: 72.8700, status: 'Reported' },
-  { id: 4, type: 'pothole', lat: 19.0790, lng: 72.8790, status: 'Fixed' },
-  { id: 5, type: 'drainage', lat: 19.0735, lng: 72.8850, status: 'Reported' },
-]
+
 
 export default function MapPage() {
   const [filter, setFilter] = useState('all')
@@ -41,7 +34,7 @@ export default function MapPage() {
         </div>
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
-          <MapContainer center={[19.076, 72.8777]} zoom={13} style={{ height: '70vh', width: '100%' }}>
+          <MapContainer center={[19.1, 72.88]} zoom={11} style={{ height: '70vh', width: '100%' }}>
             <TileLayer
               attribution="&copy; OpenStreetMap contributors"
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
